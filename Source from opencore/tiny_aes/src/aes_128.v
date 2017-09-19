@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+//Dang Nguyen test merge
 module aes_128(clk, state, key, out);
     input          clk;
     input  [127:0] state, key;
