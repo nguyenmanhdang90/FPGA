@@ -2,14 +2,12 @@
 module test_bench;
 reg  decrypt;
 reg  clk;
-reg  [0:3] roundSel;
 reg  [0:63] desIn,key;
 wire [0:63] desOut;
 always begin #10 clk = ~clk; end
-des d(desOut, desIn, key, decrypt, roundSel, clk);
+des d(desOut, desIn, key, decrypt, clk);
 initial begin
 decrypt = 1'b0;
-roundSel = 4'd1;
 clk = 0;
 desIn[0:63] = 64'h0123456789ABCDEF;
 key[0:63]=64'h133457799BBCDFF1;
