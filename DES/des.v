@@ -32,10 +32,10 @@
 ////                                                             ////
 /////////////////////////////////////////////////////////////////////
 
-module des(desOut, desIn, key, decrypt, clk);
+module des(desOut, desIn, keyIn, decrypt, clk);
 output	[63:0]	desOut;
 input	[63:0]	desIn;
-input	[55:0]	key;
+input	[63:0]	keyIn;
 input		decrypt;
 input		clk;
 
@@ -48,6 +48,8 @@ reg	[1:32]	R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15;
 wire	[1:32]	out0, out1, out2, out3, out4, out5, out6, out7, out8, out9, out10, out11, out12, out13, out14, out15;
 wire	[1:48]	K1, K2, K3, K4, K5, K6, K7, K8, K9;
 wire	[1:48]	K10, K11, K12, K13, K14, K15, K16;
+wire	[55:0]	key;
+assign key [55:0] = {keyIn[62:56],keyIn[54:48],keyIn[46:40],keyIn[38:32],keyIn[30:24],keyIn[22:16],keyIn[14:8],keyIn[6:0]};
 
 // Register the 56 bit key
 always @(posedge clk)
