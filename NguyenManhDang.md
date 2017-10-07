@@ -1,1 +1,1 @@
-#this is a simple text demo for the git
+Nguyen thi hong dieu and nguyen manh dang
