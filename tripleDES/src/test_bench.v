@@ -15,10 +15,10 @@ assign key2 =	{tmp[255:249],tmp[247:241],tmp[239:233],tmp[231:225],
  
 assign key3 =	{tmp[191:185],tmp[183:177],tmp[175:169],tmp[167:161],
 			tmp[159:153],tmp[151:145],tmp[143:137],tmp[135:129]};
-assign desIn = tmp[127:64];
+assign desIn = decrypt?tmp[63:0]:tmp[127:64];
 des3 d(desOut, desIn, key1, key2, key3, decrypt, clk); 
 initial begin
-#0 decrypt = 1'b0;//0 == encrypt / 1 == decrypt
+#0 decrypt = 1'b1;//0 == encrypt / 1 == decrypt
 #0 clk = 0;
 
 //           key1                key2             key3          Test data        Out data
